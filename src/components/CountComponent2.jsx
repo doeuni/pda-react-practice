@@ -2,6 +2,18 @@ import { useState, useEffect } from 'react'
 
 export default function CountComponent() {
   let [count, setCount] = useState(0);
+  const addCount = () => {
+    setCount(count+1);   //count바로 수정하면절대안됨.setCount통해서 수정.  setCount가 호출되면 인자값을 count에넣는다. 
+    // setCount가 호출되면 count값이 바뀐ㄷ.  
+    //setCount함수가 호출되면. 이function(Countcomponent가다시)을 첨부터 다시실행한다. 는말. state값이 바뀌면 새로다시그린다.(펑션을 다시실행)
+}
+// 0초 : setInterval(1) => setcount(0+1) - (3초마다 동작)
+// 3초 : setInterval(2) => setcount(1+1) - (3초마다 동작)
+// 6초 : setInterval(3) => setCount(2+1) - (3초마다 동작)
+
+//0초 setInterval(1) => setcount(1)
+//3초 count:1 => setInterval(2) => setcount(2) +setCount(1) ->setInterval(2) 
+//6초 count:2
 
   useEffect(()=>{
     // State변경에 대한 SideEffect처리
@@ -15,10 +27,11 @@ export default function CountComponent() {
     
   }, [count])//count 바뀔 때 2
 
+//   e
   return (
     <div>
       <div>{count}</div>
-      {/* <button onClick={addCount}>1 증가</button> */}
+      <button onClick={addCount}>1 증가</button>
     </div>
   )
 }

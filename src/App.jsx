@@ -7,7 +7,7 @@ import HelloWorld, { HelloWorld2, sampleVar } from "./components/HelloWorld";
 import CaptionImage from "./components/CaptionImage";
 import MyButton from "./components/MyButton";
 import BlinkComponent from "./components/BlinkComponent";
-import CountComponent from "./components/CountComponent";
+import CountComponent2 from "./components/CountComponent2";
 import { useState } from "react";
 function App() {
   const [visible, setVisible] = useState(true)
@@ -34,7 +34,7 @@ function App() {
       {/* {sampleVar.greeting} */}
       {/* <CountComponent /> */}
       <button onClick={() => setVisible(!visible)}>보이기</button>
-      {visible ? <CountComponent/>:null}
+      {visible ? <CountComponent2/>:null}
     </div>
   );
 }
