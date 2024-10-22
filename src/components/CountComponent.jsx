@@ -11,6 +11,7 @@ export default function CountComponent() {
     }
 
     console.log(`현재 count: ${count}`)
+    
     useEffect(()=>{
         console.log("데이터 받아오기! (이 함수는 한 번만 실행됩니다.")
         return () => {
@@ -24,7 +25,7 @@ export default function CountComponent() {
         console.log(`count가 증가할 떄마다 실행 한번! \n -count: ${count}`);
     }, [count]) //첫번쨰는 함수, 두번쨰는 배열 dependency가 바뀔때마다 함수실행시킨다. 
     //첫번쨰로 컴포넌트생성될떄 무조건실행 => 그다음엔 디펜던시에있던애가 바뀔떄마다 실행. 
-
+    // 디펜던시변경됏기떄문에 실행. 
 
     // const addCount = () => {
     //    count +=1 
