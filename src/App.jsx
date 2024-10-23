@@ -20,10 +20,21 @@ import WordFilter from './components/WordFilter';
 // import WordFilter from './components/WordFilter';
 import OnOffButton from './components/OnOffButton';
 import WordFilterNew from './components/WordFilterNew';
+import Timer2 from './components/Timer2';
+import PrimeCalculator from './components/PrimeCalculator';
+import UserDetail from './components/PrimeCalculatorcopy';
+import MyPage from './components2/MyPage';
+import ThemeButton from './components2/ThemeButtons';
+
+import { ThemeProvider } from './contexts/themeContext';
 function App() {
   // const [visible, setVisible] = useState(true)
   return (
     <div>
+      <ThemeProvider>
+        <ThemeButton />
+        <MyPage />
+      </ThemeProvider>
       {/* <CaptionImage 
       imgUrl="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA4MDdfMTcy%2FMDAxNjI4MzI1MjkyNzY2.nlWta4LfbRWq4REgnOBoYORbjpel_2qhZf4AeRTo65Eg.hh5q0DDfl07a_fsNE4KxpV8XJtG7cq-NOwpk9bSMw58g.JPEG.car5578%2F1628325067824.jpg&type=sc960_832" 
       caption= "이건 트럭입니다."
@@ -53,8 +64,11 @@ function App() {
       {/* <OnOff /> */}
       {/* <Practice3 /> */}
       {/* <Practice4 /> */}
-      <WordFilterNew />
+      {/* <WordFilterNew /> */}
       {/* <OnOffButton /> */}
+      {/* <Timer2 /> */}
+      {/* <PrimeCalculator /> */}
+      {/* <UserDetail /> */}
     </div>
   );
 }
