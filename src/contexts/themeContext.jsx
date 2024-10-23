@@ -14,6 +14,7 @@ export function ThemeProvider({ children }) {
   return (
     <>
       <themeContext.Provider value={contextValue}>{children}</themeContext.Provider>
+      {/* value 값이 반환되는거 */}
     </>
   );
 }

@@ -27,14 +27,21 @@ import MyPage from './components2/MyPage';
 import ThemeButton from './components2/ThemeButtons';
 
 import { ThemeProvider } from './contexts/themeContext';
+
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TodoApp from './components/TodoApp';
+import TodoApp2 from './components/TodoApp2';
+
 function App() {
   // const [visible, setVisible] = useState(true)
   return (
     <div>
-      <ThemeProvider>
+      {/* <Button>dd</Button> */}
+      {/* <ThemeProvider>
         <ThemeButton />
         <MyPage />
-      </ThemeProvider>
+      </ThemeProvider> */}
       {/* <CaptionImage 
       imgUrl="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA4MDdfMTcy%2FMDAxNjI4MzI1MjkyNzY2.nlWta4LfbRWq4REgnOBoYORbjpel_2qhZf4AeRTo65Eg.hh5q0DDfl07a_fsNE4KxpV8XJtG7cq-NOwpk9bSMw58g.JPEG.car5578%2F1628325067824.jpg&type=sc960_832" 
       caption= "이건 트럭입니다."
@@ -69,6 +76,8 @@ function App() {
       {/* <Timer2 /> */}
       {/* <PrimeCalculator /> */}
       {/* <UserDetail /> */}
+      <TodoApp />
+      <TodoApp2 />
     </div>
   );
 }

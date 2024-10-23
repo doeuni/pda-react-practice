@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 export default function OnOffButton() {
   const [buttonName, setButtonName] = useState('OFF');
-  const [isOn, setIsOn] = useState(false);
+  // const [isOn, setIsOn] = useState(false);
 
   useEffect(() => {
     if (buttonName == 'ON') {
