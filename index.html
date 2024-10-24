@@ -5,6 +5,17 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
+    <style>
+      body {
+        background-color: aquamarine;
+      }
+      li {
+        margin-bottom: 10px;
+        padding: 15px;
+        color: white;
+        border-radius: 10px;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
 
     <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossorigin></script>
@@ -15,8 +26,9 @@
       var Alert = ReactBootstrap.Alert;
     </script>
   </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+  <body style="background-color: skyblue">
+    <div id="root">
+      <script type="module" src="/src/main.jsx"></script>
+    </div>
   </body>
 </html>

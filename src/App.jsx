@@ -35,6 +35,7 @@ import TodoApp2 from './components/TodoApp2';
 
 function App() {
   // const [visible, setVisible] = useState(true)
+
   return (
     <div>
       {/* <Button>dd</Button> */}
@@ -77,7 +78,7 @@ function App() {
       {/* <PrimeCalculator /> */}
       {/* <UserDetail /> */}
       <TodoApp />
-      <TodoApp2 />
+      {/* <TodoApp2 /> */}
     </div>
   );
 }
