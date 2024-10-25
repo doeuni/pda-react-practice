@@ -2,13 +2,18 @@ import { useState, useEffect } from 'react';
 import TodoInput from '../components2/TodoInput';
 import Colorbar from '../components2/Colorbar';
 import TodoList from '../components2/TodoList';
+import { v4 as uuidv4 } from 'uuid';
+
 export default function TodoApp() {
   //state값은 우리가 사용할 변수들을 저장하는
   const [userInput, setUserInput] = useState('');
-  const [inputArr, setInputArr] = useState([]); //어떻게 저장할지부터 정하기
-  const [color, setColor] = useState(''); //현재색깔바뀌는거
-  const [searchInput, setSearchInput] = useState('');
+  const [inputArr, setInputArr] = useState([]); //어떻게 저장할지"부터" 정하기
+  const [color, setColor] = useState('white'); //현재색깔바뀌는거
+  const [searchInput, setSearchInput] = useState(''); //검색어저장
+  //검색결과저장
+
   const [copyArr, setCopy] = useState([]);
+  const [edited, setEdited] = useState(false); // 수정 모드인지 확인하기 위한 플래그 값 3항써서 수정눌렀는지 안눌렀는지띄우는거 state만들고
 
   //함수만들기. 색깔바꿀때마다 일일이 바꿀 수 없으니까
   //멘토님이 공책에 그리면서 설명한거 (밑에함수)
@@ -27,22 +32,20 @@ export default function TodoApp() {
     console.log(inputArr);
     setUserInput('');
   };
-  // 선생님은 여기서 useCallback으로 감싸서 todoInput이랑 pickedColor바뀔때
-  // useCallback 안써도 문제는 없는데 최적화용.
-  // const addTodo = useCallback(() => {
-  //   setTodoArray((prevTodoArr) => [
-  //     ...prevTodoArr,
-  //     {
-  //       text: todoInput,
-  //       color: pickedColor,
-  //     },
-  //   ]);
-  //   setTodoInput('');
-  // }, [todoInput, pickedColor]);
 
   const searchHandler = (e) => {
     setSearchItem(e.curretTarget.value);
   };
+  //삭제
+  const onRemove = (index) => {
+    const newPost = inputArr.filter((e, i) => i !== index);
+
+    //inputArr 객체에서 돌면서 필터도는거니까
+    setInputArr(newPost);
+  };
+
+  // 수정
+
   useEffect(() => {
     setCopy(inputArr);
   }, [inputArr]);
@@ -59,11 +62,13 @@ export default function TodoApp() {
     }
   }, [inputArr]);
 
-  // // 한번만 실행되게 할거라서 빈배열로 두고
+  // // 한번만 실행되게 할거라서 빈배열로 두고. 추가될때 호출돼야돼 이런 분류가 생각나면 자연스럽게 useEffect가 생각날거.
   useEffect(() => {
     const storedSettings = JSON.parse(localStorage.getItem('inputArr'));
-    setInputArr(storedSettings);
-    console.log(storedSettings);
+    if (storedSettings) {
+      setInputArr(storedSettings);
+      console.log(storedSettings);
+    }
   }, []);
 
   return (
@@ -87,7 +92,7 @@ export default function TodoApp() {
         검색
       </button>
       <Colorbar setColor={setColor} />
-      <TodoList inputArr={copyArr.length !== 0 ? copyArr : inputArr} />
+      <TodoList inputArr={copyArr.length !== 0 ? copyArr : inputArr} onRemove={onRemove} setInputArr={setInputArr} />
     </div>
   );
 }
