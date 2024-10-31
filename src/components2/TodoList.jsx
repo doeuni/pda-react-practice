@@ -11,26 +11,21 @@ export default function TodoList(props) {
   const onClickEdit = (index) => {
     const text = newText;
     const newItem = props.inputArr.map((e, i) => (i === index ? { ...e, text } : e)); //처음에 맨마지막에 e가아니라 배열을 넣었어서 배열이 추가됐었음
-    // console.log(newItem)
-    // setEdited(inputArr.map(i,e)) => ㅑ ===index ? {...Colorbar.,te} : dnjsfo원래;
     props.setInputArr(newItem);
-    // setNewText(false); //수정모드를 다시 읽기모드로 변경
   };
   const updateState = (i) => {
     setIndex(i);
     setState(!state);
     // 이 안에서 호출해주는 이유는 아까보니까 oncahnge로 해가지고 바로바로 바뀌잖아 그래가지고 수정다하고 나서 버튼 다시 클릭하면 바뀌게...
-    //길이 체크해주는것도 처음에 내가 useState ''로 초기화해둿으니까 그떄안바뀌게!!
+    //길이 체크해주는것도 처음에 내가 useState ''로 초기화해둿으니까 그때 안바뀌게!!
     if (state === true && newText.length > 0) {
       onClickEdit(i);
     }
-    // setIndex([...index, i])
   };
 
   return (
     <div>
       <ul style={{ paddingLeft: 0 }}>
-        {' '}
         {props.inputArr !== null
           ? props.inputArr.map((e, i) => (
               <li
@@ -44,12 +39,12 @@ export default function TodoList(props) {
                 }}
               >
                 {/* {e.text + ' ' + e.color} */}
-                {e.newText ? e.newText : e.text}{' '}
+                {e.newText ? e.newText : e.text}
                 <button onClick={() => props.onRemove(i)} style={{ border: '0', backgroundColor: 'white' }}>
                   삭제
                 </button>
                 {/* 버튼을 클릭하면 수정할 input을 받는 input 태그가 뜨는거고 
-            그러믄 버튼 온클릭은 setState 를 해주고 인풋태그부분에서 onclick하면 edit 호출하ㅔ게ㅔㅔ */}
+                그러믄 버튼 온클릭은 setState 를 해주고 인풋태그부분에서 onclick하면 edit 호출하게 */}
                 <button onClick={() => updateState(i)} style={{ border: '0', backgroundColor: 'white' }}>
                   {/* <button onClick={() => props.onClickEdit(i)} style={{ border: '0', backgroundColor: 'white' }}> */}
                   {/* 위에서 onClickEdit 하는게아니라  */}
