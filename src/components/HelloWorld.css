@@ -1,0 +1,21 @@
+.hello-world {
+    color: red;
+    font-size: 1.5em;
+}
+
+/* 단위 (width, height)
+px: 절대적인 크기
+% : 상위 엘리먼트에 대비해 몇% 차지 하는지
+em :현재 font-size에 대비한 크기 (font-size: 20px이면 1.5em: 30px)
+rem : root의 font-size 에 대비한 크기 (html태그의 font-size:10px, 1.5rem:15.px)
+
+vw/vh : viewport (width/height)
+- device의 스크린 크기 대비
+(100VW, screen width 크기 : 300px이면 100vw는 300px. 
+
+flex :
+- flex-direction : flex 축 정하기(방향) (row vs column)
+- justify-content : flex축에 대한 배치
+- align-items : flex축 반대에 대한 배치
+screen height : 600px 이면 10vh일 경우 60px 
+*/
